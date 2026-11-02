@@ -2,6 +2,27 @@ body {
   margin: 0;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+/* 7. le liens pas visible */
+.sr-only {
+  visibility: hidden;
+}
+/* 8. le liens  visible */
+.sr-only:focus {
+  visibility: visible;
+}
+
+img {
+  border: solid red 10px;
+}
+/* 10. images avec alt */
+img[alt] {
+  border: none;
+}
+/* 11. liens interne (commencent avec #) */
+a[href^="#"] {
+ 
+}
+
 body > * {
   padding: 10px;
 }
@@ -12,7 +33,7 @@ header {
   box-sizing: border-box;
 }
 
-header img {
+header img { /* 1. le logo */
     width: 129px;
     height: 192px;
     float: left;
@@ -20,23 +41,59 @@ header img {
 header nav {
   text-align: right;
 }
+
+/* 2. les liens */
+header nav a {
+}
 main {
   clear: both;
 }
 main img {
   height: 200px;
 }
+/* 3. les liens dans le contenu */
+main a,
+main p a {
+  
+}
 main ul {
   list-style-type: "";
   display: flex;
   flex-flow: row wrap;
 }
-h2:not(:first-of-type), footer {
+
+ /* 4. charlotte - c'est le <li> qui est le premier de sont parent. */
+li:first-of-type figcaption,
+li:nth-of-type(1) figcaption,
+li:first-child figcaption {
+ 
+}
+
+ /* 5. personne 5 - c'est le <li> qui est le dernier de sont parent. */
+li:last-of-type img,
+li:nth-last-of-type(1) img,
+li:last-child img {
+ 
+}
+
+/* 12. lorsque l’élément <figure>, le parent de l'image et le figcaption, est survolé */
+main figure:hover {
+
+}
+
+
+h2:not(:first-of-type), 
+footer {
   padding-top: 1em;
   border-top: 1px solid rgb(0 0 0 /0.3);
   box-shadow: 0 -10px 10px rgb(25 0 0 /0.1);
   margin: 1em -10px;
   padding: 10px 20px;
+}
+
+/* 9. lecole. seulement le h2 si c'est directement apres le h1 */
+h1 + h2 {
+  
 }
 footer {
   background-color: lightgreen;
@@ -49,7 +106,11 @@ table {
 caption {
   padding: 10px;
 }
-th:not(:first-of-type) {
+
+/* 6. les trois villes */
+th:not(:first-of-type), 
+th ~ th,
+th + th {
   background-color: rgb(0 0 0 / 0.1);
 }
 tr > * {
